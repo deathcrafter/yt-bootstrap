@@ -22,9 +22,9 @@
 
 		<title>Document</title>
 	</head>
-	<body class="d-flex flex-column">
-		<div id="nav-container" class="d-flex px-2 py-2">
-			<div id="nav-start" class="col d-flex align-items-center gap-2">
+	<body class="d-flex flex-column vh-100">
+		<div id="nav-container" class="position-sticky top-0 left-0 d-flex px-2 py-2 zindex-sticky">
+			<div id="nav-start" class="col d-flex align-items-center ps-2 gap-2">
 				<button type="button" class="p-2 border-0 rounded-circle btn-lg icon-button">
 					<img class="icon p-0" src="./resources/icons/menu.png" alt="menu" />
 				</button>
@@ -40,7 +40,7 @@
 					/>
 				</button>
 			</div>
-			<div id="nav-center" class="col-6"></div>
+			<div id="nav-center" class="col-3 col-lg-6"></div>
 			<div id="nav-end" class="col d-flex flex-row-reverse align-items-center">
 				<button type="button" class="p-0 border-0 rounded-circle btn-lg bg-transparent">
 					<img
@@ -58,97 +58,733 @@
 				</button>
 			</div>
 		</div>
-		<div id="body-container" class="flex flex-grow-1 flex-shrink-1">
-			<div id="side-bar" style="width: 240px" class="mh-100 pt-3 overflow-auto">
-				<div class="side-section">
-					<h3 class="px-3 pt-2 p-1 fs-6 fw-normal text-white" hidden>Top</h3>
-					<div class="px-2 side-bar-items-container">
-						<div class="d-flex align-items-center gap-1 px-1 py-2 rounded-3 side-bar-item active">
-							<img class="icon me-3" src="./resources/icons/home.png" alt="home" />
-							<span style="font-size: 0.9rem; font-weight: 500" class="text-white align-middle"
+		<div id="body-container" class="h-100">
+			<div
+				id="side-bar-expanded"
+				style="width: 240px"
+				class="position-fixed top-0 d-none d-xl-flex flex-column vh-100 zindex-offcanvas"
+			>
+				<div id="side-bar-header" class="d-flex align-items-center gap-2 mt-2 ms-3 mb-4">
+					<button type="button" class="p-2 border-0 rounded-circle btn-lg icon-button">
+						<img class="icon p-0" src="./resources/icons/menu.png" alt="menu" />
+					</button>
+					<button
+						type="button"
+						class="d-flex align-items-center p-2 border-0 rounded-circle btn-lg bg-transparent"
+					>
+						<img
+							id="yt-icon"
+							style="height: 21px"
+							src="./resources/icons/youtube.png"
+							alt="yt-icon"
+						/>
+					</button>
+				</div>
+				<div
+					id="side-bar-expanded-sections-container"
+					class="d-flex flex-column flex-grow-1 pt-1 overflow-auto"
+				>
+					<div class="side-section">
+						<h3 class="ps-3 pt-2 p-1 fs-6 fw-normal text-white" hidden>Top</h3>
+						<div class="px-2 side-bar-items-container">
+							<div class="d-flex align-items-center gap-1 px-2 py-2 rounded-3 side-bar-item active">
+								<img class="icon ms-2 me-3" src="./resources/icons/home.png" alt="home" />
+								<span style="font-size: 0.9rem; font-weight: 500" class="text-white align-middle"
+									>Home</span
+								>
+							</div>
+						</div>
+						<div class="px-2 side-bar-items-container">
+							<div class="d-flex align-items-center gap-1 px-2 py-2 rounded-3 side-bar-item">
+								<img class="icon ms-2 me-3" src="./resources/icons/shorts.png" alt="shorts" />
+								<span style="font-size: 0.9rem" class="text-white align-middle">Shorts</span>
+							</div>
+						</div>
+						<div class="px-2 side-bar-items-container">
+							<div class="d-flex align-items-center gap-1 px-2 py-2 rounded-3 side-bar-item">
+								<img
+									class="icon ms-2 me-3"
+									src="./resources/icons/subscriptions.png"
+									alt="shorts"
+								/>
+								<span style="font-size: 0.9rem" class="text-white align-middle">Subscriptions</span>
+							</div>
+						</div>
+					</div>
+					<hr class="mx-2 my-3 border bg-white opacity-25" />
+					<div class="side-section">
+						<h3 class="px-3 pt-2 p-1 fs-6 fw-normal text-white" hidden>Top</h3>
+						<div class="px-2 side-bar-items-container">
+							<div class="d-flex align-items-center gap-1 px-2 py-2 rounded-3 side-bar-item">
+								<img class="icon ms-2 me-3" src="./resources/icons/library.png" alt="home" />
+								<span style="font-size: 0.9rem" class="text-white align-middle">Library</span>
+							</div>
+						</div>
+						<div class="px-2 side-bar-items-container">
+							<div class="d-flex align-items-center gap-1 px-2 py-2 rounded-3 side-bar-item">
+								<img class="icon ms-2 me-3" src="./resources/icons/history.png" alt="shorts" />
+								<span style="font-size: 0.9rem" class="text-white align-middle">History</span>
+							</div>
+						</div>
+						<div class="px-2 side-bar-items-container">
+							<div class="d-flex align-items-center gap-1 px-2 py-2 rounded-3 side-bar-item">
+								<img class="icon ms-2 me-3" src="./resources/icons/slideshow.png" alt="shorts" />
+								<span style="font-size: 0.9rem" class="text-white align-middle">Your videos</span>
+							</div>
+						</div>
+						<div class="px-2 side-bar-items-container">
+							<div class="d-flex align-items-center gap-1 px-2 py-2 rounded-3 side-bar-item">
+								<img class="icon ms-2 me-3" src="./resources/icons/schedule.png" alt="shorts" />
+								<span style="font-size: 0.9rem" class="text-white align-middle">Watch later</span>
+							</div>
+						</div>
+						<div class="px-2 side-bar-items-container">
+							<div class="d-flex align-items-center gap-1 px-2 py-2 rounded-3 side-bar-item">
+								<img class="icon ms-2 me-3" src="./resources/icons/content.png" alt="shorts" />
+								<span style="font-size: 0.9rem" class="text-white align-middle">Your clips</span>
+							</div>
+						</div>
+						<div class="px-2 side-bar-items-container">
+							<div class="d-flex align-items-center gap-1 px-2 py-2 rounded-3 side-bar-item">
+								<img class="icon ms-2 me-3" src="./resources/icons/expand.png" alt="shorts" />
+								<span style="font-size: 0.9rem" class="text-white align-middle">Show more</span>
+							</div>
+						</div>
+					</div>
+					<hr class="mx-2 my-3 border bg-white opacity-25" />
+					<div class="side-section">
+						<h3 class="px-3 pt-2 p-1 fs-6 fw-normal text-white" hidden>Top</h3>
+						<div class="px-2 side-bar-items-container">
+							<div class="d-flex align-items-center gap-1 px-2 py-2 rounded-3 side-bar-item">
+								<img class="icon ms-2 me-3" src="./resources/icons/settings.png" alt="home" />
+								<span style="font-size: 0.9rem" class="text-white align-middle">Settings</span>
+							</div>
+						</div>
+						<div class="px-2 side-bar-items-container">
+							<div class="d-flex align-items-center gap-1 px-2 py-2 rounded-3 side-bar-item">
+								<img class="icon ms-2 me-3" src="./resources/icons/flag.png" alt="shorts" />
+								<span style="font-size: 0.9rem" class="text-white align-middle"
+									>Report history</span
+								>
+							</div>
+						</div>
+						<div class="px-2 side-bar-items-container">
+							<div class="d-flex align-items-center gap-1 px-2 py-2 rounded-3 side-bar-item">
+								<img class="icon ms-2 me-3" src="./resources/icons/help.png" alt="shorts" />
+								<span style="font-size: 0.9rem" class="text-white align-middle">Help</span>
+							</div>
+						</div>
+						<div class="px-2 side-bar-items-container">
+							<div class="d-flex align-items-center gap-1 px-2 py-2 rounded-3 side-bar-item">
+								<img class="icon ms-2 me-3" src="./resources/icons/sms.png" alt="shorts" />
+								<span style="font-size: 0.9rem" class="text-white align-middle">Send feedback</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div style="min-width: 0" id="content-container" class="d-flex flex-grow-1 w-100 h-100">
+				<div
+					style="width: 72px"
+					id="side-bar-small"
+					class="d-none d-md-flex d-xl-none flex-column align-items-center flex-shrink-0"
+				>
+					<div style="width: 90%" class="d-flex side-bar-items-container">
+						<div
+							class="d-flex flex-column flex-fill align-items-center gap-1 px-0 py-3 rounded-3 side-bar-item"
+						>
+							<img class="icon" src="./resources/icons/home.png" alt="home" />
+							<span style="font-size: 0.51rem; font-weight: 500" class="text-white align-middle"
 								>Home</span
 							>
 						</div>
 					</div>
-					<div class="px-2 side-bar-items-container">
-						<div class="d-flex align-items-center gap-1 px-1 py-2 rounded-3 side-bar-item">
-							<img class="icon me-3" src="./resources/icons/shorts.png" alt="shorts" />
-							<span style="font-size: 0.9rem" class="text-white align-middle">Shorts</span>
+					<div style="width: 90%" class="d-flex side-bar-items-container">
+						<div
+							class="d-flex flex-column flex-fill align-items-center gap-1 px-0 py-3 rounded-3 side-bar-item"
+						>
+							<img class="icon" src="./resources/icons/shorts.png" alt="home" />
+							<span style="font-size: 0.51rem; font-weight: 500" class="text-white align-middle"
+								>Shorts</span
+							>
 						</div>
 					</div>
-					<div class="px-2 side-bar-items-container">
-						<div class="d-flex align-items-center gap-1 px-1 py-2 rounded-3 side-bar-item">
-							<img class="icon me-3" src="./resources/icons/subscriptions.png" alt="shorts" />
-							<span style="font-size: 0.9rem" class="text-white align-middle">Subscriptions</span>
+					<div style="width: 90%" class="d-flex side-bar-items-container">
+						<div
+							class="d-flex flex-column flex-fill align-items-center gap-1 px-0 py-3 rounded-3 side-bar-item"
+						>
+							<img class="icon" src="./resources/icons/subscriptions.png" alt="home" />
+							<span style="font-size: 0.51rem; font-weight: 500" class="text-white align-middle"
+								>Subscriptions</span
+							>
 						</div>
 					</div>
-				</div>
-				<hr style="height: 1px" class="mx-2 my-3 border-0 bg-white opacity-25" />
-				<div class="side-section">
-					<h3 class="px-3 pt-2 p-1 fs-6 fw-normal text-white" hidden>Top</h3>
-					<div class="px-2 side-bar-items-container">
-						<div class="d-flex align-items-center gap-1 px-1 py-2 rounded-3 side-bar-item">
-							<img class="icon me-3" src="./resources/icons/library.png" alt="home" />
-							<span style="font-size: 0.9rem" class="text-white align-middle">Library</span>
-						</div>
-					</div>
-					<div class="px-2 side-bar-items-container">
-						<div class="d-flex align-items-center gap-1 px-1 py-2 rounded-3 side-bar-item">
-							<img class="icon me-3" src="./resources/icons/history.png" alt="shorts" />
-							<span style="font-size: 0.9rem" class="text-white align-middle">History</span>
-						</div>
-					</div>
-					<div class="px-2 side-bar-items-container">
-						<div class="d-flex align-items-center gap-1 px-1 py-2 rounded-3 side-bar-item">
-							<img class="icon me-3" src="./resources/icons/slideshow.png" alt="shorts" />
-							<span style="font-size: 0.9rem" class="text-white align-middle">Your videos</span>
-						</div>
-					</div>
-					<div class="px-2 side-bar-items-container">
-						<div class="d-flex align-items-center gap-1 px-1 py-2 rounded-3 side-bar-item">
-							<img class="icon me-3" src="./resources/icons/schedule.png" alt="shorts" />
-							<span style="font-size: 0.9rem" class="text-white align-middle">Watch later</span>
-						</div>
-					</div>
-					<div class="px-2 side-bar-items-container">
-						<div class="d-flex align-items-center gap-1 px-1 py-2 rounded-3 side-bar-item">
-							<img class="icon me-3" src="./resources/icons/content.png" alt="shorts" />
-							<span style="font-size: 0.9rem" class="text-white align-middle">Your clips</span>
-						</div>
-					</div>
-					<div class="px-2 side-bar-items-container">
-						<div class="d-flex align-items-center gap-1 px-1 py-2 rounded-3 side-bar-item">
-							<img class="icon me-3" src="./resources/icons/expand.png" alt="shorts" />
-							<span style="font-size: 0.9rem" class="text-white align-middle">Show more</span>
+					<div style="width: 90%" class="d-flex side-bar-items-container">
+						<div
+							class="d-flex flex-column flex-fill align-items-center gap-1 px-0 py-3 rounded-3 side-bar-item"
+						>
+							<img class="icon" src="./resources/icons/library.png" alt="home" />
+							<span style="font-size: 0.51rem; font-weight: 500" class="text-white align-middle"
+								>Library</span
+							>
 						</div>
 					</div>
 				</div>
-				<hr style="height: 1px" class="mx-2 my-3 border-0 bg-white opacity-25" />
-
-				<div class="side-section">
-					<h3 class="px-3 pt-2 p-1 fs-6 fw-normal text-white" hidden>Top</h3>
-					<div class="px-2 side-bar-items-container">
-						<div class="d-flex align-items-center gap-1 px-1 py-2 rounded-3 side-bar-item">
-							<img class="icon me-3" src="./resources/icons/settings.png" alt="home" />
-							<span style="font-size: 0.9rem" class="text-white align-middle">Settings</span>
-						</div>
+				<div style="width: 240px" class="d-none d-xl-flex flex-shrink-0"></div>
+				<div id="videos-container" style="min-width: 0" class="d-flex flex-column flex-grow-1">
+					<div
+						id="tags-container"
+						style="width: 95%"
+						class="d-flex align-items-center mt-3 px-4 gap-2 overflow-hidden"
+					>
+						<span
+							style="font-size: 0.9rem"
+							class="px-3 py-1 rounded-3 text-bg-light text-nowrap tag"
+							>All</span
+						>
+						<span style="font-size: 0.9rem" class="px-3 py-1 rounded-3 text-white text-nowrap tag"
+							>Music</span
+						>
+						<span style="font-size: 0.9rem" class="px-3 py-1 rounded-3 text-white text-nowrap tag"
+							>Live</span
+						>
+						<span style="font-size: 0.9rem" class="px-3 py-1 rounded-3 text-white text-nowrap tag"
+							>Mixes</span
+						>
+						<span style="font-size: 0.9rem" class="px-3 py-1 rounded-3 text-white text-nowrap tag"
+							>Manga</span
+						>
+						<span style="font-size: 0.9rem" class="px-3 py-1 rounded-3 text-white text-nowrap tag"
+							>Lo-fi</span
+						>
+						<span style="font-size: 0.9rem" class="px-3 py-1 rounded-3 text-white text-nowrap tag"
+							>Gadgets</span
+						>
+						<span style="font-size: 0.9rem" class="px-3 py-1 rounded-3 text-white text-nowrap tag"
+							>Web Development</span
+						>
+						<span style="font-size: 0.9rem" class="px-3 py-1 rounded-3 text-white text-nowrap tag"
+							>Computer Programming</span
+						>
+						<span style="font-size: 0.9rem" class="px-3 py-1 rounded-3 text-white text-nowrap tag"
+							>Gaming</span
+						>
+						<span style="font-size: 0.9rem" class="px-3 py-1 rounded-3 text-white text-nowrap tag"
+							>Background Music</span
+						>
+						<span style="font-size: 0.9rem" class="px-3 py-1 rounded-3 text-white text-nowrap tag"
+							>Physics</span
+						>
+						<span style="font-size: 0.9rem" class="px-3 py-1 rounded-3 text-white text-nowrap tag"
+							>Universe</span
+						>
 					</div>
-					<div class="px-2 side-bar-items-container">
-						<div class="d-flex align-items-center gap-1 px-1 py-2 rounded-3 side-bar-item">
-							<img class="icon me-3" src="./resources/icons/flag.png" alt="shorts" />
-							<span style="font-size: 0.9rem" class="text-white align-middle">Report history</span>
-						</div>
-					</div>
-					<div class="px-2 side-bar-items-container">
-						<div class="d-flex align-items-center gap-1 px-1 py-2 rounded-3 side-bar-item">
-							<img class="icon me-3" src="./resources/icons/help.png" alt="shorts" />
-							<span style="font-size: 0.9rem" class="text-white align-middle">Help</span>
-						</div>
-					</div>
-					<div class="px-2 side-bar-items-container">
-						<div class="d-flex align-items-center gap-1 px-1 py-2 rounded-3 side-bar-item">
-							<img class="icon me-3" src="./resources/icons/sms.png" alt="shorts" />
-							<span style="font-size: 0.9rem" class="text-white align-middle">Send feedback</span>
+					<div style="z-index: -10" id="video-grid">
+						<div class="row p-4 justify-content-between">
+							<div class="col-6 col-md-4 col-xl-3 d-flex flex-column gap-3">
+								<div class="position-relative">
+									<img class="rounded-4 w-100" src="./resources/images/1.webp" alt="s1" />
+									<span
+										style="
+											background-color: rgba(30, 30, 30, 0.8);
+											font-size: 0.7rem;
+											padding: 1px 2px;
+											bottom: 5px;
+											right: 5px;
+										"
+										class="position-absolute rounded-1 text-white"
+										>3:57</span
+									>
+								</div>
+								<div class="d-flex">
+									<img
+										style="height: 36px"
+										class="rounded-circle me-3"
+										src="/resources/icons/user.png"
+										alt="channel"
+									/>
+									<div class="d-flex flex-column">
+										<span
+											style="
+												font-size: 0.95rem;
+												font-weight: 500;
+												max-height: 3rem;
+												overflow: hidden;
+											"
+											class="mb-2 text-white"
+											>The Hero return [AMV] My demon
+										</span>
+										<span style="font-size: 0.75rem; font-weight: 300" class="text-white opacity-75"
+											>KING AMV's</span
+										>
+										<span style="font-size: 0.75rem; font-weight: 300" class="text-white opacity-75"
+											>1.3M views • 1 year ago</span
+										>
+									</div>
+								</div>
+							</div>
+							<div class="col-6 col-md-4 col-xl-3 d-flex flex-column gap-3">
+								<div class="position-relative">
+									<img class="rounded-4 w-100" src="./resources/images/1.webp" alt="s1" />
+									<span
+										style="
+											background-color: rgba(30, 30, 30, 0.8);
+											font-size: 0.7rem;
+											padding: 1px 2px;
+											bottom: 5px;
+											right: 5px;
+										"
+										class="position-absolute rounded-1 text-white"
+										>3:57</span
+									>
+								</div>
+								<div class="d-flex">
+									<img
+										style="height: 36px"
+										class="rounded-circle me-3"
+										src="/resources/icons/user.png"
+										alt="channel"
+									/>
+									<div class="d-flex flex-column">
+										<span
+											style="
+												font-size: 0.95rem;
+												font-weight: 500;
+												max-height: 3rem;
+												overflow: hidden;
+											"
+											class="mb-2 text-white"
+											>The Hero return [AMV] My demon
+										</span>
+										<span style="font-size: 0.75rem; font-weight: 300" class="text-white opacity-75"
+											>KING AMV's</span
+										>
+										<span style="font-size: 0.75rem; font-weight: 300" class="text-white opacity-75"
+											>1.3M views • 1 year ago</span
+										>
+									</div>
+								</div>
+							</div>
+							<div class="col-6 col-md-4 col-xl-3 d-flex flex-column gap-3">
+								<div class="position-relative">
+									<img class="rounded-4 w-100" src="./resources/images/1.webp" alt="s1" />
+									<span
+										style="
+											background-color: rgba(30, 30, 30, 0.8);
+											font-size: 0.7rem;
+											padding: 1px 2px;
+											bottom: 5px;
+											right: 5px;
+										"
+										class="position-absolute rounded-1 text-white"
+										>3:57</span
+									>
+								</div>
+								<div class="d-flex">
+									<img
+										style="height: 36px"
+										class="rounded-circle me-3"
+										src="/resources/icons/user.png"
+										alt="channel"
+									/>
+									<div class="d-flex flex-column">
+										<span
+											style="
+												font-size: 0.95rem;
+												font-weight: 500;
+												max-height: 3rem;
+												overflow: hidden;
+											"
+											class="mb-2 text-white"
+											>The Hero return [AMV] My demon
+										</span>
+										<span style="font-size: 0.75rem; font-weight: 300" class="text-white opacity-75"
+											>KING AMV's</span
+										>
+										<span style="font-size: 0.75rem; font-weight: 300" class="text-white opacity-75"
+											>1.3M views • 1 year ago</span
+										>
+									</div>
+								</div>
+							</div>
+							<div class="col-6 col-md-4 col-xl-3 d-flex flex-column gap-3">
+								<div class="position-relative">
+									<img class="rounded-4 w-100" src="./resources/images/1.webp" alt="s1" />
+									<span
+										style="
+											background-color: rgba(30, 30, 30, 0.8);
+											font-size: 0.7rem;
+											padding: 1px 2px;
+											bottom: 5px;
+											right: 5px;
+										"
+										class="position-absolute rounded-1 text-white"
+										>3:57</span
+									>
+								</div>
+								<div class="d-flex">
+									<img
+										style="height: 36px"
+										class="rounded-circle me-3"
+										src="/resources/icons/user.png"
+										alt="channel"
+									/>
+									<div class="d-flex flex-column">
+										<span
+											style="
+												font-size: 0.95rem;
+												font-weight: 500;
+												max-height: 3rem;
+												overflow: hidden;
+											"
+											class="mb-2 text-white"
+											>The Hero return [AMV] My demon
+										</span>
+										<span style="font-size: 0.75rem; font-weight: 300" class="text-white opacity-75"
+											>KING AMV's</span
+										>
+										<span style="font-size: 0.75rem; font-weight: 300" class="text-white opacity-75"
+											>1.3M views • 1 year ago</span
+										>
+									</div>
+								</div>
+							</div>
+							<div class="col-6 col-md-4 col-xl-3 d-flex flex-column gap-3">
+								<div class="position-relative">
+									<img class="rounded-4 w-100" src="./resources/images/1.webp" alt="s1" />
+									<span
+										style="
+											background-color: rgba(30, 30, 30, 0.8);
+											font-size: 0.7rem;
+											padding: 1px 2px;
+											bottom: 5px;
+											right: 5px;
+										"
+										class="position-absolute rounded-1 text-white"
+										>3:57</span
+									>
+								</div>
+								<div class="d-flex">
+									<img
+										style="height: 36px"
+										class="rounded-circle me-3"
+										src="/resources/icons/user.png"
+										alt="channel"
+									/>
+									<div class="d-flex flex-column">
+										<span
+											style="
+												font-size: 0.95rem;
+												font-weight: 500;
+												max-height: 3rem;
+												overflow: hidden;
+											"
+											class="mb-2 text-white"
+											>The Hero return [AMV] My demon
+										</span>
+										<span style="font-size: 0.75rem; font-weight: 300" class="text-white opacity-75"
+											>KING AMV's</span
+										>
+										<span style="font-size: 0.75rem; font-weight: 300" class="text-white opacity-75"
+											>1.3M views • 1 year ago</span
+										>
+									</div>
+								</div>
+							</div>
+							<div class="col-6 col-md-4 col-xl-3 d-flex flex-column gap-3">
+								<div class="position-relative">
+									<img class="rounded-4 w-100" src="./resources/images/1.webp" alt="s1" />
+									<span
+										style="
+											background-color: rgba(30, 30, 30, 0.8);
+											font-size: 0.7rem;
+											padding: 1px 2px;
+											bottom: 5px;
+											right: 5px;
+										"
+										class="position-absolute rounded-1 text-white"
+										>3:57</span
+									>
+								</div>
+								<div class="d-flex">
+									<img
+										style="height: 36px"
+										class="rounded-circle me-3"
+										src="/resources/icons/user.png"
+										alt="channel"
+									/>
+									<div class="d-flex flex-column">
+										<span
+											style="
+												font-size: 0.95rem;
+												font-weight: 500;
+												max-height: 3rem;
+												overflow: hidden;
+											"
+											class="mb-2 text-white"
+											>The Hero return [AMV] My demon
+										</span>
+										<span style="font-size: 0.75rem; font-weight: 300" class="text-white opacity-75"
+											>KING AMV's</span
+										>
+										<span style="font-size: 0.75rem; font-weight: 300" class="text-white opacity-75"
+											>1.3M views • 1 year ago</span
+										>
+									</div>
+								</div>
+							</div>
+							<div class="col-6 col-md-4 col-xl-3 d-flex flex-column gap-3">
+								<div class="position-relative">
+									<img class="rounded-4 w-100" src="./resources/images/1.webp" alt="s1" />
+									<span
+										style="
+											background-color: rgba(30, 30, 30, 0.8);
+											font-size: 0.7rem;
+											padding: 1px 2px;
+											bottom: 5px;
+											right: 5px;
+										"
+										class="position-absolute rounded-1 text-white"
+										>3:57</span
+									>
+								</div>
+								<div class="d-flex">
+									<img
+										style="height: 36px"
+										class="rounded-circle me-3"
+										src="/resources/icons/user.png"
+										alt="channel"
+									/>
+									<div class="d-flex flex-column">
+										<span
+											style="
+												font-size: 0.95rem;
+												font-weight: 500;
+												max-height: 3rem;
+												overflow: hidden;
+											"
+											class="mb-2 text-white"
+											>The Hero return [AMV] My demon
+										</span>
+										<span style="font-size: 0.75rem; font-weight: 300" class="text-white opacity-75"
+											>KING AMV's</span
+										>
+										<span style="font-size: 0.75rem; font-weight: 300" class="text-white opacity-75"
+											>1.3M views • 1 year ago</span
+										>
+									</div>
+								</div>
+							</div>
+							<div class="col-6 col-md-4 col-xl-3 d-flex flex-column gap-3">
+								<div class="position-relative">
+									<img class="rounded-4 w-100" src="./resources/images/1.webp" alt="s1" />
+									<span
+										style="
+											background-color: rgba(30, 30, 30, 0.8);
+											font-size: 0.7rem;
+											padding: 1px 2px;
+											bottom: 5px;
+											right: 5px;
+										"
+										class="position-absolute rounded-1 text-white"
+										>3:57</span
+									>
+								</div>
+								<div class="d-flex">
+									<img
+										style="height: 36px"
+										class="rounded-circle me-3"
+										src="/resources/icons/user.png"
+										alt="channel"
+									/>
+									<div class="d-flex flex-column">
+										<span
+											style="
+												font-size: 0.95rem;
+												font-weight: 500;
+												max-height: 3rem;
+												overflow: hidden;
+											"
+											class="mb-2 text-white"
+											>The Hero return [AMV] My demon
+										</span>
+										<span style="font-size: 0.75rem; font-weight: 300" class="text-white opacity-75"
+											>KING AMV's</span
+										>
+										<span style="font-size: 0.75rem; font-weight: 300" class="text-white opacity-75"
+											>1.3M views • 1 year ago</span
+										>
+									</div>
+								</div>
+							</div>
+							<div class="col-6 col-md-4 col-xl-3 d-flex flex-column gap-3">
+								<div class="position-relative">
+									<img class="rounded-4 w-100" src="./resources/images/1.webp" alt="s1" />
+									<span
+										style="
+											background-color: rgba(30, 30, 30, 0.8);
+											font-size: 0.7rem;
+											padding: 1px 2px;
+											bottom: 5px;
+											right: 5px;
+										"
+										class="position-absolute rounded-1 text-white"
+										>3:57</span
+									>
+								</div>
+								<div class="d-flex">
+									<img
+										style="height: 36px"
+										class="rounded-circle me-3"
+										src="/resources/icons/user.png"
+										alt="channel"
+									/>
+									<div class="d-flex flex-column">
+										<span
+											style="
+												font-size: 0.95rem;
+												font-weight: 500;
+												max-height: 3rem;
+												overflow: hidden;
+											"
+											class="mb-2 text-white"
+											>The Hero return [AMV] My demon
+										</span>
+										<span style="font-size: 0.75rem; font-weight: 300" class="text-white opacity-75"
+											>KING AMV's</span
+										>
+										<span style="font-size: 0.75rem; font-weight: 300" class="text-white opacity-75"
+											>1.3M views • 1 year ago</span
+										>
+									</div>
+								</div>
+							</div>
+							<div class="col-6 col-md-4 col-xl-3 d-flex flex-column gap-3">
+								<div class="position-relative">
+									<img class="rounded-4 w-100" src="./resources/images/1.webp" alt="s1" />
+									<span
+										style="
+											background-color: rgba(30, 30, 30, 0.8);
+											font-size: 0.7rem;
+											padding: 1px 2px;
+											bottom: 5px;
+											right: 5px;
+										"
+										class="position-absolute rounded-1 text-white"
+										>3:57</span
+									>
+								</div>
+								<div class="d-flex">
+									<img
+										style="height: 36px"
+										class="rounded-circle me-3"
+										src="/resources/icons/user.png"
+										alt="channel"
+									/>
+									<div class="d-flex flex-column">
+										<span
+											style="
+												font-size: 0.95rem;
+												font-weight: 500;
+												max-height: 3rem;
+												overflow: hidden;
+											"
+											class="mb-2 text-white"
+											>The Hero return [AMV] My demon
+										</span>
+										<span style="font-size: 0.75rem; font-weight: 300" class="text-white opacity-75"
+											>KING AMV's</span
+										>
+										<span style="font-size: 0.75rem; font-weight: 300" class="text-white opacity-75"
+											>1.3M views • 1 year ago</span
+										>
+									</div>
+								</div>
+							</div>
+							<div class="col-6 col-md-4 col-xl-3 d-flex flex-column gap-3">
+								<div class="position-relative">
+									<img class="rounded-4 w-100" src="./resources/images/1.webp" alt="s1" />
+									<span
+										style="
+											background-color: rgba(30, 30, 30, 0.8);
+											font-size: 0.7rem;
+											padding: 1px 2px;
+											bottom: 5px;
+											right: 5px;
+										"
+										class="position-absolute rounded-1 text-white"
+										>3:57</span
+									>
+								</div>
+								<div class="d-flex">
+									<img
+										style="height: 36px"
+										class="rounded-circle me-3"
+										src="/resources/icons/user.png"
+										alt="channel"
+									/>
+									<div class="d-flex flex-column">
+										<span
+											style="
+												font-size: 0.95rem;
+												font-weight: 500;
+												max-height: 3rem;
+												overflow: hidden;
+											"
+											class="mb-2 text-white"
+											>The Hero return [AMV] My demon
+										</span>
+										<span style="font-size: 0.75rem; font-weight: 300" class="text-white opacity-75"
+											>KING AMV's</span
+										>
+										<span style="font-size: 0.75rem; font-weight: 300" class="text-white opacity-75"
+											>1.3M views • 1 year ago</span
+										>
+									</div>
+								</div>
+							</div>
+							<div class="col-6 col-md-4 col-xl-3 d-flex flex-column gap-3">
+								<div class="position-relative">
+									<img class="rounded-4 w-100" src="./resources/images/1.webp" alt="s1" />
+									<span
+										style="
+											background-color: rgba(30, 30, 30, 0.8);
+											font-size: 0.7rem;
+											padding: 1px 2px;
+											bottom: 5px;
+											right: 5px;
+										"
+										class="position-absolute rounded-1 text-white"
+										>3:57</span
+									>
+								</div>
+								<div class="d-flex">
+									<img
+										style="height: 36px"
+										class="rounded-circle me-3"
+										src="/resources/icons/user.png"
+										alt="channel"
+									/>
+									<div class="d-flex flex-column">
+										<span
+											style="
+												font-size: 0.95rem;
+												font-weight: 500;
+												max-height: 3rem;
+												overflow: hidden;
+											"
+											class="mb-2 text-white"
+											>The Hero return [AMV] My demon
+										</span>
+										<span style="font-size: 0.75rem; font-weight: 300" class="text-white opacity-75"
+											>KING AMV's</span
+										>
+										<span style="font-size: 0.75rem; font-weight: 300" class="text-white opacity-75"
+											>1.3M views • 1 year ago</span
+										>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
